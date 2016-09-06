@@ -22,6 +22,13 @@ namespace CodeLou.CSharp.Week2.Challenge
             Console.WriteLine("This is the launch application for the first human mission to Mars.");
             Console.Write("Enter the number of seconds you would like to count down from: ");
 
+            int seconds;
+
+            if (int.TryParse(Console.ReadLine(), out seconds))
+                Console.WriteLine("Success! You put " + seconds + " seconds");
+            else
+                Console.WriteLine("Error, number could not be read. Please use integers only");
+
             // Task 3:
             // Capture the number of seconds that the user would like to count down before liftoff.
             // Hint: You should use another method of the Console class and store the output into a
