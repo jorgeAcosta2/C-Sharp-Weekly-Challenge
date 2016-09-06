@@ -22,25 +22,36 @@ namespace CodeLou.CSharp.Week2.Challenge
             Console.WriteLine("This is the launch application for the first human mission to Mars.");
             Console.Write("Enter the number of seconds you would like to count down from: ");
 
-            int seconds;
-
-            if (int.TryParse(Console.ReadLine(), out seconds))
-                Console.WriteLine("Success! You put " + seconds + " seconds");
-            else
-                Console.WriteLine("Error, number could not be read. Please use integers only");
-
             // Task 3:
             // Capture the number of seconds that the user would like to count down before liftoff.
             // Hint: You should use another method of the Console class and store the output into a
             //       variable to use later.
-
-
             // Task 4:
             // Write a condition to test whether the number that they entered is less than or equal to zero.
             // Call the IsLessThanOrEqualToZero() method below, passing the user's number as a parameter.
             // If the result is true, write "Please enter a positive number." to the console.
             // Hint: The input that you captured is currently a string type. You will have to "parse" it
             //       as a different type in order to pass it to the IsLessThanOrEqualToZero function.
+
+            int seconds;
+
+            if (int.TryParse(Console.ReadLine(), out seconds) && !IsLessThanOrEqualToZero(seconds))
+            {
+                do
+                {
+                    Console.WriteLine(seconds);
+                    seconds--;
+                }
+                while (seconds > 0);
+
+                if (seconds == 0)
+                {
+                    Console.WriteLine("Lift off!");
+                }
+
+            } 
+            else
+                Console.WriteLine("Error, number could not be read. Please use positive integers only");
 
 
             // Task 5:
